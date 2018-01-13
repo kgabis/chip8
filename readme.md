@@ -29,7 +29,7 @@ API should be quite simple and self-descriptive, here's how a theoretical client
         }
 
         if (chip8_should_beep(ch8)) {
-            puts("beep");
+            beep();
         }
 
         for (int y = 0; y < chip8_get_height(ch8); y++) {
