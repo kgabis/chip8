@@ -8,12 +8,12 @@ API should be quite simple and self-descriptive, here's how a theoretical client
 ```c
     chip8_t *ch8 = chip8_make();
     if (ch8 == NULL) {
-        return;
+        goto end;
     }
 
     bool ok = chip8_load_program(ch8, program, program_size);
     if (!ok) {
-        return;
+        goto end;
     }
     
     while (true) {
@@ -39,6 +39,8 @@ API should be quite simple and self-descriptive, here's how a theoretical client
                 }
             }
         }
+
+        sleep_ms(16);
     }
 end:
     chip8_destroy(ch8);
